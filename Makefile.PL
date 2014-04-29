@@ -25,4 +25,10 @@ WriteMakefile(
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'WebService-Instagram-*' },
+    META_MERGE => {
+        resources  => {
+            homepage => 'https://github.com/odem5442/WebService-Instagram',
+            repository => 'git://github.com/odem5442/WebService-Instagram.git',
+        }
+    },
 );
