@@ -35,8 +35,13 @@ sub get_auth_url {
 		confess "ERROR: $_ required for generating authorization URL." if (!defined $_);
 	}
 	#print Dumper $self->{client_id};
-	my $return_url = AUTHORIZE_URL . join("&", ( map { $_ . "=" . $self->{$_} } @auth_fields) );
-	return $return_url;
+
+	my $uri = URI->new( AUTHORIZE_URL );
+	$uri->query_form(
+		map { $_ => $self->{$_} } @auth_fields,
+	);
+
+	return $uri->as_string();
 }
 
 sub set_code {
