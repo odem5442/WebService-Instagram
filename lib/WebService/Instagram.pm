@@ -123,7 +123,8 @@ The returned URL is usually of the form www.returnuri.com/?code=xxxxxxxxxxx
 
 Now using the code, fetch the access_token and set it to the object,
 
-	my $access_token = $instagram->get_access_token( $code ); #$code is fetched from Step 2.
+ 	$instagram->set_code( $code ); #$code is fetched from Step 2.
+	my $access_token = $instagram->get_access_token();
 
 	#Set the access_token to $instagram object
 	$instagram->set_access_token( $access_token );
@@ -133,7 +134,7 @@ Now using the code, fetch the access_token and set it to the object,
 Fetch the protected resource.
 	
 	#Get authenticated user's feed
-	my $search_result = $instagram->get( 'https://api.instagram.com/v1/users/self/feed' );
+	my $search_result = $instagram->request( 'https://api.instagram.com/v1/users/self/feed' );
 
 =head1 SUBROUTINES/METHODS
 
