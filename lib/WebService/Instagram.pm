@@ -87,6 +87,8 @@ sub request {
 	return decode_json $ret;
 }
 
+1; # End of WebService::Instagram
+__END__
 
 =head1 NAME
 
@@ -95,8 +97,6 @@ WebService::Instagram - Simple Interface to Instagram oAuth API
 =head1 VERSION
 
 Version 0.03
-
-=cut
 
 =head1 SYNOPSIS
 
@@ -164,7 +164,7 @@ Daya Sagar Nune, C<< <dayanune at cpan.org> >>
 
 =head1 SUPPORT
 
-This module's source and other documentation is hosted at: https://github.com/odem5442/WebService-Instagram
+This module's source and other documentation is hosted at: L<https://github.com/odem5442/WebService-Instagram>
 
 =head1 LICENSE AND COPYRIGHT
 
@@ -174,9 +174,6 @@ This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published
 by the Free Software Foundation; or the Artistic License.
 
-See http://dev.perl.org/licenses/ for more information.
-
+See L<http://dev.perl.org/licenses/> for more information.
 
 =cut
-
-1; # End of WebService::Instagram
