@@ -11,7 +11,7 @@ use Carp;
 use Data::Dumper;
 use HTTP::Request;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 use constant AUTHORIZE_URL 	=> 'https://api.instagram.com/oauth/authorize?';
 use constant ACCESS_TOKEN_URL 	=> 'https://api.instagram.com/oauth/access_token?';
@@ -96,7 +96,7 @@ WebService::Instagram - Simple Interface to Instagram oAuth API
 
 =head1 VERSION
 
-Version 0.03
+Version 0.05
 
 =head1 SYNOPSIS
 
