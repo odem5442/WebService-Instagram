@@ -34,10 +34,14 @@ sub get_auth_url {
 	foreach ( @auth_fields ) {
 		confess "ERROR: $_ required for generating authorization URL." if (!defined $_);
 	}
-	my $auth_base_url = "https://api.instagram.com/oauth/authorize/?";
 	#print Dumper $self->{client_id};
-	my $return_url = AUTHORIZE_URL . join("&", ( map { $_ . "=" . $self->{$_} } @auth_fields) );
-	return $return_url;
+
+	my $uri = URI->new( AUTHORIZE_URL );
+	$uri->query_form(
+		map { $_ => $self->{$_} } @auth_fields,
+	);
+
+	return $uri->as_string();
 }
 
 sub set_code {
