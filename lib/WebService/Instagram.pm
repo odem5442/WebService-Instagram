@@ -18,9 +18,6 @@ use constant ACCESS_TOKEN_URL 	=> 'https://api.instagram.com/oauth/access_token?
 
 sub new {
 	my ($class, $self) = @_;
-	foreach ( qw(client_id client_secret redirect_uri) ) {
-		confess "Oops! $_ not provided" if ( ! defined $self->{$_} );
-	}
 	$self->{browser} = LWP::UserAgent->new();
 	bless $self, $class;
 	return $self;
