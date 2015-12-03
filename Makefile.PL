@@ -20,6 +20,7 @@ WriteMakefile(
 	'Carp' 	     => 0,
 	'Data::Dumper' => 0,
 	'HTTP::Request' => 0,
+	 'Safe::Isa'     => 1.000005,
 	'strict' 	=> 0,
 	'warnings'	=> 0
     },
