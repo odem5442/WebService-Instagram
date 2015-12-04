@@ -10,6 +10,7 @@ use URI;
 use Carp;
 use Data::Dumper;
 use HTTP::Request;
+use Safe::Isa;
 
 our $VERSION = '0.05';
 
@@ -18,10 +19,10 @@ use constant ACCESS_TOKEN_URL 	=> 'https://api.instagram.com/oauth/access_token?
 
 sub new {
 	my ($class, $self) = @_;
-	foreach ( qw(client_id client_secret redirect_uri) ) {
-		confess "Oops! $_ not provided" if ( ! defined $self->{$_} );
+	$self->{browser} ||= LWP::UserAgent->new();
+	unless ( $self->{browser}->$_isa('LWP::UserAgent') ) {
+		carp 'Browser is not a LWP::UserAgent';
 	}
-	$self->{browser} = LWP::UserAgent->new();
 	bless $self, $class;
 	return $self;
 }
