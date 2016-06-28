@@ -140,8 +140,8 @@ Now using the code, fetch the access_token and set it to the object,
 
 Fetch the protected resource.
 	
-	#Get authenticated user's feed
-	my $search_result = $instagram->request( 'https://api.instagram.com/v1/users/self/feed' );
+	#Get information about the owner of the access_token.
+	my $search_result = $instagram->request( 'https://api.instagram.com/v1/users/self' );
 
 =head1 SUBROUTINES/METHODS
 
