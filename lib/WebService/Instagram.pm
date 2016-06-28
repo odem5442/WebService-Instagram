@@ -12,10 +12,12 @@ use Data::Dumper;
 use HTTP::Request;
 use Safe::Isa;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 use constant AUTHORIZE_URL 	=> 'https://api.instagram.com/oauth/authorize?';
 use constant ACCESS_TOKEN_URL 	=> 'https://api.instagram.com/oauth/access_token?';
+
+$ENV{'PERL_LWP_SSL_VERIFY_HOSTNAME'} = 0;
 
 sub new {
 	my ($class, $self) = @_;
